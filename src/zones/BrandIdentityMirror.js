@@ -1,44 +1,5 @@
-// Stable BrandIdentityMirror.js without glitches
-
 import React, { useState, useEffect, useRef } from 'react';
 import './BrandIdentityMirror.css';
-
-// Import all brand logos with updated paths
-import AdobeLogo from '../images/Logos/Adobe.png';
-import AppleLogo from '../images/Logos/Apple.png';
-import BarbieLogo from '../images/Logos/Barbie-Logo,png.png';
-import BurgerKingLogo from '../images/Logos/Burger King.png';
-import DeltaLogo from '../images/Logos/Delta.png';
-import InstagramLogo from '../images/Logos/instagram.png';
-import NetflixLogo from '../images/Logos/Netflix Logo.png';
-import NikeLogo from '../images/Logos/Nike.png';
-import OldSpiceLogo from '../images/Logos/Old spice logo.png';
-import PepsiLogo from '../images/Logos/Pepsi.png';
-import REILogo from '../images/Logos/REI.png';
-import SkittlesLogo from '../images/Logos/Skittles.png';
-import SpotifyLogo from '../images/Logos/Spotify,png.png';
-import TacoBellLogo from '../images/Logos/Taco_Bell_2016.png';
-// Updated path for Twitter
-import TwitterLogo from '../images/Logos/Twitter.png';
-import WendysLogo from '../images/Logos/Wendys-Logo.png';
-import DuolingoLogo from '../images/Logos/duolingo.png';
-import StarbucksLogo from '../images/Logos/Starbucks.png';
-import AmazonLogo from '../images/Logos/Amazon.png';
-import FacebookLogo from '../images/Logos/facebook.png';
-import HuluLogo from '../images/Logos/Hulu.png';
-import IkeaLogo from '../images/Logos/Ikea.png';
-import LinkedinLogo from '../images/Logos/Linkedin.png';
-import McDonaldsLogo from '../images/Logos/Mcdonalds.png';
-import PelotonLogo from '../images/Logos/Peloton.png';
-import SephoraLogo from '../images/Logos/Sephora.png';
-// Updated path for Snapchat
-import SnapchatLogo from '../images/Logos/Snpachat.png';
-import TargetLogo from '../images/Logos/Target.png';
-import TiktokLogo from '../images/Logos/Tiktok.png';
-import TinderLogo from '../images/Logos/tinder.png';
-import WalmartLogo from '../images/Logos/Walmart.png';
-// Updated path for YouTube
-import YoutubeLogo from '../images/Logos/Youtube.png';
 
 const BrandIdentityMirror = ({ onZoneComplete }) => {
   // Game state - simplified for stability
@@ -60,41 +21,41 @@ const BrandIdentityMirror = ({ onZoneComplete }) => {
   const timeoutsRef = useRef([]); // Keep track of all timeouts
   const brandOptionsRef = useRef(null);
   const gameScreenRef = useRef(null);
-
-  // Map of logo imports to variables
+  
+  // Map of logo paths
   const logoMap = {
-    adobe: AdobeLogo,
-    apple: AppleLogo,
-    barbie: BarbieLogo,
-    burgerking: BurgerKingLogo,
-    delta: DeltaLogo,
-    instagram: InstagramLogo,
-    netflix: NetflixLogo,
-    nike: NikeLogo,
-    oldspice: OldSpiceLogo,
-    pepsi: PepsiLogo,
-    rei: REILogo,
-    skittles: SkittlesLogo,
-    spotify: SpotifyLogo,
-    tacobell: TacoBellLogo,
-    twitter: TwitterLogo,
-    wendys: WendysLogo,
-    duolingo: DuolingoLogo,
-    starbucks: StarbucksLogo,
-    amazon: AmazonLogo,
-    facebook: FacebookLogo,
-    hulu: HuluLogo,
-    ikea: IkeaLogo,
-    linkedin: LinkedinLogo,
-    mcdonalds: McDonaldsLogo,
-    peloton: PelotonLogo,
-    sephora: SephoraLogo,
-    snapchat: SnapchatLogo,
-    target: TargetLogo,
-    tiktok: TiktokLogo,
-    tinder: TinderLogo,
-    walmart: WalmartLogo,
-    youtube: YoutubeLogo
+    adobe: `${process.env.PUBLIC_URL}/images/Logos/Adobe.png`,
+    apple: `${process.env.PUBLIC_URL}/images/Logos/Apple.png`,
+    barbie: `${process.env.PUBLIC_URL}/images/Logos/Barbie-Logo,png.png`,
+    burgerking: `${process.env.PUBLIC_URL}/images/Logos/Burger King.png`,
+    delta: `${process.env.PUBLIC_URL}/images/Logos/Delta.png`,
+    instagram: `${process.env.PUBLIC_URL}/images/Logos/instagram.png`,
+    netflix: `${process.env.PUBLIC_URL}/images/Logos/Netflix Logo.png`,
+    nike: `${process.env.PUBLIC_URL}/images/Logos/Nike.png`,
+    oldspice: `${process.env.PUBLIC_URL}/images/Logos/Old spice logo.png`,
+    pepsi: `${process.env.PUBLIC_URL}/images/Logos/Pepsi.png`,
+    rei: `${process.env.PUBLIC_URL}/images/Logos/REI.png`,
+    skittles: `${process.env.PUBLIC_URL}/images/Logos/Skittles.png`,
+    spotify: `${process.env.PUBLIC_URL}/images/Logos/Spotify,png.png`,
+    tacobell: `${process.env.PUBLIC_URL}/images/Logos/Taco_Bell_2016.png`,
+    twitter: `${process.env.PUBLIC_URL}/images/Logos/Twitter.png`,
+    wendys: `${process.env.PUBLIC_URL}/images/Logos/Wendys-Logo.png`,
+    duolingo: `${process.env.PUBLIC_URL}/images/Logos/duolingo.png`,
+    starbucks: `${process.env.PUBLIC_URL}/images/Logos/Starbucks.png`,
+    amazon: `${process.env.PUBLIC_URL}/images/Logos/Amazon.png`,
+    facebook: `${process.env.PUBLIC_URL}/images/Logos/facebook.png`,
+    hulu: `${process.env.PUBLIC_URL}/images/Logos/Hulu.png`,
+    ikea: `${process.env.PUBLIC_URL}/images/Logos/Ikea.png`,
+    linkedin: `${process.env.PUBLIC_URL}/images/Logos/Linkedin.png`,
+    mcdonalds: `${process.env.PUBLIC_URL}/images/Logos/Mcdonalds.png`,
+    peloton: `${process.env.PUBLIC_URL}/images/Logos/Peloton.png`,
+    sephora: `${process.env.PUBLIC_URL}/images/Logos/Sephora.png`,
+    snapchat: `${process.env.PUBLIC_URL}/images/Logos/Snpachat.png`,
+    target: `${process.env.PUBLIC_URL}/images/Logos/Target.png`,
+    tiktok: `${process.env.PUBLIC_URL}/images/Logos/Tiktok.png`,
+    tinder: `${process.env.PUBLIC_URL}/images/Logos/tinder.png`,
+    walmart: `${process.env.PUBLIC_URL}/images/Logos/Walmart.png`,
+    youtube: `${process.env.PUBLIC_URL}/images/Logos/Youtube.png`
   };
 
   // Game data - Quotes and their real brands

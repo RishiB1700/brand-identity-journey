@@ -1,14 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './VoiceGeneratorLab.css';
 
-// Import brand logos - adjust the paths as needed based on your project structure
-import WendysLogo from '../images/Logos/Wendys-Logo.png';
-import DuolingoLogo from '../images/Logos/duolingo.png'; // Fixed lowercase name
-import NetflixLogo from '../images/Logos/Netflix Logo.png';
-import InstagramLogo from '../images/Logos/instagram.png';
-import StarbucksLogo from '../images/Logos/Starbucks.png';
-import AppleLogo from '../images/Logos/Apple.png';
-
 const VoiceGeneratorLab = ({ onZoneComplete }) => {
   // States
   const [selectedBrand, setSelectedBrand] = useState(null);
@@ -38,7 +30,7 @@ const VoiceGeneratorLab = ({ onZoneComplete }) => {
       id: 'wendys',
       name: 'Wendy\'s',
       color: '#e2231a',
-      logo: WendysLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/Wendys-Logo.png`,
       voices: {
         corporate: 'We pride ourselves on delivering fresh, never frozen beef and quality ingredients to our valued customers.',
         metaAware: 'Yes, we roast other brands online. No, our social media manager isn\'t getting a raise for it.',
@@ -52,7 +44,7 @@ const VoiceGeneratorLab = ({ onZoneComplete }) => {
       id: 'duolingo',
       name: 'Duolingo',
       color: '#58cc02',
-      logo: DuolingoLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/duolingo.png`,
       voices: {
         corporate: 'Our mission is to develop the best education in the world and make it universally available.',
         metaAware: 'Yes, we know about the memes. Yes, we lean into the whole threatening owl thing. It works.',
@@ -66,7 +58,7 @@ const VoiceGeneratorLab = ({ onZoneComplete }) => {
       id: 'netflix',
       name: 'Netflix',
       color: '#e50914',
-      logo: NetflixLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/Netflix Logo.png`,
       voices: {
         corporate: 'Netflix delivers premium entertainment experiences across a wide variety of genres and languages.',
         metaAware: 'Yes, we know you share your password. No, that "are you still watching" isn\'t about judging you.',
@@ -80,7 +72,7 @@ const VoiceGeneratorLab = ({ onZoneComplete }) => {
       id: 'instagram',
       name: 'Instagram',
       color: '#833AB4',
-      logo: InstagramLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/instagram.png`,
       voices: {
         corporate: 'Instagram helps you connect and share with the people and things that matter most.',
         metaAware: 'Yes, we know our algorithm is addictive. That\'s literally the whole business model.',
@@ -94,7 +86,7 @@ const VoiceGeneratorLab = ({ onZoneComplete }) => {
       id: 'starbucks',
       name: 'Starbucks',
       color: '#00704A',
-      logo: StarbucksLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/Starbucks.png`,
       voices: {
         corporate: 'Starbucks is committed to ethically sourced coffee and fostering a welcoming third place environment.',
         metaAware: 'Yes, we know the baristas spell your name wrong. Yes, it gets us free advertising when you post it.',
@@ -108,7 +100,7 @@ const VoiceGeneratorLab = ({ onZoneComplete }) => {
       id: 'apple',
       name: 'Apple',
       color: '#A2AAAD',
-      logo: AppleLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/Apple.png`,
       voices: {
         corporate: 'Apple creates products that enrich people\'s lives and help them achieve their dreams.',
         metaAware: 'Yes, we change the charger every few years. No, it\'s not JUST to make more money.',

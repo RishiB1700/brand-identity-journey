@@ -1,24 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './BrandTherapy.css';
 
-// Logo imports - maintain these but fix the path if needed
-// You may need to adjust these import paths based on your project structure
-import AdobeLogo from '../images/Logos/Adobe.png';
-import AppleLogo from '../images/Logos/Apple.png';
-import BarbieLogo from '../images/Logos/Barbie-Logo,png.png';
-import BurgerKingLogo from '../images/Logos/Burger King.png';
-import DeltaLogo from '../images/Logos/Delta.png';
-import InstagramLogo from '../images/Logos/instagram.png';
-import NetflixLogo from '../images/Logos/Netflix Logo.png';
-import NikeLogo from '../images/Logos/Nike.png';
-import OldSpiceLogo from '../images/Logos/Old spice logo.png';
-import PepsiLogo from '../images/Logos/Pepsi.png';
-import REILogo from '../images/Logos/REI.png';
-import SkittlesLogo from '../images/Logos/Skittles.png';
-import SpotifyLogo from '../images/Logos/Spotify,png.png';
-import TacoBellLogo from '../images/Logos/Taco_Bell_2016.png';
-import TwitterLogo from '../images/Logos/Twitter and X.png';
-import WendysLogo from '../images/Logos/Wendys-Logo.png';
+// Logo imports removed
 
 const BrandTherapy = ({ onZoneComplete }) => {
   // State
@@ -41,7 +24,7 @@ const BrandTherapy = ({ onZoneComplete }) => {
     {
       id: 'wendys',
       name: 'Wendy\'s',
-      logo: WendysLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/Wendys-Logo.png`,
       color: '#FFEFD5', // Light cream
       textColor: '#ffffff', // White for text (good contrast on red background)
       nameColor: '#ffffff', // White for waiting room name
@@ -76,7 +59,7 @@ const BrandTherapy = ({ onZoneComplete }) => {
     {
       id: 'netflix',
       name: 'Netflix',
-      logo: NetflixLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/Netflix Logo.png`,
       color: '#e50914',
       textColor: '#ffffff', // White text for contrast
       nameColor: '#ffffff', // White for waiting room name
@@ -111,7 +94,7 @@ const BrandTherapy = ({ onZoneComplete }) => {
     {
       id: 'barbie',
       name: 'Barbie',
-      logo: BarbieLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/Barbie-Logo,png.png`,
       color: '#FF69B4',
       textColor: '#ffffff', // White text for contrast
       nameColor: '#ffffff', // White for waiting room name
@@ -146,7 +129,7 @@ const BrandTherapy = ({ onZoneComplete }) => {
     {
       id: 'nike',
       name: 'Nike',
-      logo: NikeLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/Nike.png`,
       color: '#ffffff',
       textColor: '#ffffff', // FIXED: White text for contrast on black background
       nameColor: '#ffffff', // White for waiting room name
@@ -181,7 +164,7 @@ const BrandTherapy = ({ onZoneComplete }) => {
     {
       id: 'instagram',
       name: 'Instagram',
-      logo: InstagramLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/instagram.png`,
       color: '#833AB4',
       textColor: '#ffffff', // White for contrast
       nameColor: '#ffffff', // White for waiting room name
@@ -216,7 +199,7 @@ const BrandTherapy = ({ onZoneComplete }) => {
     {
       id: 'rei',
       name: 'REI',
-      logo: REILogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/REI.png`,
       color: '#4CBB17',
       textColor: '#ffffff', // White for contrast
       nameColor: '#ffffff', // White for waiting room name
@@ -251,7 +234,7 @@ const BrandTherapy = ({ onZoneComplete }) => {
     {
       id: 'apple',
       name: 'Apple',
-      logo: AppleLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/Apple.png`,
       color: '#A2AAAD',
       textColor: '#ffffff', // White for better contrast
       nameColor: '#ffffff', // White for waiting room name
@@ -286,7 +269,7 @@ const BrandTherapy = ({ onZoneComplete }) => {
     {
       id: 'pepsi',
       name: 'Pepsi',
-      logo: PepsiLogo,
+      logo: `${process.env.PUBLIC_URL}/images/Logos/Pepsi.png`,
       color: '#005CB4',
       textColor: '#ffffff', // White for contrast
       nameColor: '#ffffff', // White for waiting room name

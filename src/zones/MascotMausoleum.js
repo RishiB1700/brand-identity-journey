@@ -1,24 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './MascotMausoleum.css';
 
-// Import mascot images
-import michelinManImg from '../images/Mascots/michellin-man.png';
-import elsieCowImg from '../images/Mascots/elsie-cow.png';
-import mrCleanImg from '../images/Mascots/mr-clean.png';
-import ronaldMcDonaldImg from '../images/Mascots/ronald-mcdonald.png';
-import pillsburyDoughboyImg from '../images/Mascots/pillsbury-doughboy.png';
-import tonyTigerImg from '../images/Mascots/tony-tiger.png';
-import koolAidManImg from '../images/Mascots/kool-aid-man.png';
-import energizerBunnyImg from '../images/Mascots/energizer-bunny.png';
-import noidImg from '../images/Mascots/noid.png';
-import geicoGeckoImg from '../images/Mascots/geico-gecko.png';
-import floImg from '../images/Mascots/flo.png';
-import mayhemImg from '../images/Mascots/mayhem-allstate.png';
-import duolingoOwlImg from '../images/Mascots/duolingo.png';
-import colonelSandersImg from '../images/Mascots/colonel-sanders.png';
-import jakeStateFromImg from '../images/Mascots/jake-statefarm.png';
-import maxwellPigImg from '../images/Mascots/maxwell-pig.png';
-
 const MascotMausoleum = ({ onZoneComplete }) => {
   const [selectedMascot, setSelectedMascot] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -81,7 +63,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'evolved',
       era: 'pioneers',
       iconText: '🏍️',
-      image: michelinManImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/michellin-man.png`,
       color: '#2196F3'
     },
     {
@@ -100,7 +82,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'retired',
       era: 'pioneers',
       iconText: '🐄',
-      image: elsieCowImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/elsie-cow.png`,
       color: '#FFC107'
     },
     
@@ -121,7 +103,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'extant',
       era: 'golden',
       iconText: '🧼',
-      image: mrCleanImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/mr-clean.png`,
       color: '#E0E0E0'
     },
     {
@@ -140,7 +122,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'retired',
       era: 'golden',
       iconText: '🤡',
-      image: ronaldMcDonaldImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/ronald-mcdonald.png`,
       color: '#F44336'
     },
     {
@@ -159,7 +141,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'extant',
       era: 'golden',
       iconText: '👨‍🍳',
-      image: pillsburyDoughboyImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/pillsbury-doughboy.png`,
       color: '#90CAF9'
     },
     {
@@ -178,7 +160,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'evolved',
       era: 'golden',
       iconText: '🐯',
-      image: tonyTigerImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/tony-tiger.png`,
       color: '#FF9800'
     },
     {
@@ -197,7 +179,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'evolved',
       era: 'golden',
       iconText: '🧃',
-      image: koolAidManImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/kool-aid-man.png`,
       color: '#F44336'
     },
     
@@ -218,7 +200,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'extant',
       era: 'millennial',
       iconText: '🐰',
-      image: energizerBunnyImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/energizer-bunny.png`,
       color: '#F06292'
     },
     {
@@ -237,7 +219,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'reborn',
       era: 'millennial',
       iconText: '🍕',
-      image: noidImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/noid.png`,
       color: '#E53935'
     },
     {
@@ -256,7 +238,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'extant',
       era: 'millennial',
       iconText: '🦎',
-      image: geicoGeckoImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/geico-gecko.png`,
       color: '#4CAF50'
     },
     {
@@ -275,7 +257,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'evolved',
       era: 'millennial',
       iconText: '👩',
-      image: floImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/flo.png`,
       color: '#2196F3'
     },
     {
@@ -294,7 +276,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'extant',
       era: 'millennial',
       iconText: '🐷',
-      image: maxwellPigImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/maxwell-pig.png`,
       color: '#EC407A'
     },
     
@@ -315,7 +297,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'extant',
       era: 'modern',
       iconText: '💥',
-      image: mayhemImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/mayhem-allstate.png`,
       color: '#424242'
     },
     {
@@ -334,7 +316,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'evolved',
       era: 'modern',
       iconText: '🦉',
-      image: duolingoOwlImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/duolingo.png`,
       color: '#58CC02'
     },
     {
@@ -353,7 +335,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'reborn',
       era: 'modern', // Placed in modern for resurrection
       iconText: '🍗',
-      image: colonelSandersImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/colonel-sanders.png`,
       color: '#FF5722'
     },
     {
@@ -372,7 +354,7 @@ const MascotMausoleum = ({ onZoneComplete }) => {
       status: 'reborn',
       era: 'modern',
       iconText: '👨🏽',
-      image: jakeStateFromImg,
+      image: `${process.env.PUBLIC_URL}/images/Mascots/jake-statefarm.png`,
       color: '#E53935'
     }
   ];
