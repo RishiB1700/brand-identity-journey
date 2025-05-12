@@ -1,0 +1,180 @@
+/* Main App Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  /* Critical change: Changed from overflow: hidden */
+  overflow: visible;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #f5f5f5;
+  background-color: #080808;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  /* Critical change: Changed from overflow: hidden */
+  overflow: auto;
+}
+
+/* Zone transitions */
+.zone-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Critical change: Added overflow: auto to allow scrolling within zones */
+  overflow: auto;
+  transition: opacity 1s ease;
+}
+
+/* Narrative prompt styles */
+.narrative-prompt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem;
+  color: #f5f5f5;
+}
+
+.prompt-text {
+  font-size: 2.5rem;
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 3rem;
+  line-height: 1.4;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+.continue-button {
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.continue-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Transition effects */
+.zone-container.fade {
+  animation: fade-transition 1.5s forwards;
+}
+
+.zone-container.glitch {
+  animation: glitch-transition 0.8s forwards;
+}
+
+.zone-container.ripple {
+  animation: ripple-transition 1.2s forwards;
+}
+
+.zone-container.blackout {
+  animation: blackout-transition 1s forwards;
+}
+
+.zone-container.static {
+  animation: static-transition 0.8s forwards;
+}
+
+@keyframes fade-transition {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes glitch-transition {
+  0% { transform: translate(0); filter: brightness(1); }
+  10% { transform: translate(-5px, 5px); filter: brightness(1.5); }
+  20% { transform: translate(5px, -5px); filter: brightness(0.8); }
+  30% { transform: translate(-5px, -5px); filter: brightness(1.2); }
+  40% { transform: translate(5px, 5px); filter: brightness(0.9); }
+  50% { transform: translate(0); filter: brightness(1.5); }
+  60% { transform: translate(-2px, 2px); filter: brightness(0.8); }
+  70% { transform: translate(2px, -2px); filter: brightness(1.3); }
+  80% { transform: translate(-2px, -2px); filter: brightness(0.9); }
+  90% { transform: translate(2px, 2px); filter: brightness(1.2); }
+  100% { transform: translate(0); filter: brightness(1); }
+}
+
+@keyframes ripple-transition {
+  0% { transform: scale(1); filter: blur(0); }
+  30% { transform: scale(1.05); filter: blur(5px); }
+  60% { transform: scale(0.98); filter: blur(2px); }
+  100% { transform: scale(1); filter: blur(0); }
+}
+
+@keyframes blackout-transition {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes static-transition {
+  0% { opacity: 0; }
+  20% { opacity: 0.2; }
+  40% { opacity: 0.1; }
+  60% { opacity: 0.8; }
+  80% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* Placeholder styles for development */
+.placeholder-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  font-size: 2rem;
+  color: #888;
+  background-color: #111;
+  border: 1px dashed #444;
+  margin: 2rem;
+  border-radius: 8px;
+}
+
+.zone-navigation {
+  padding: 1rem;
+  text-align: center;
+}
+
+.zone-navigation button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.zone-navigation button:hover {
+  background-color: #555;
+}

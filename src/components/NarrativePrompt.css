@@ -1,0 +1,252 @@
+/* NarrativePrompt.css - Save this in the same folder as your components */
+.narrative-prompt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+  overflow: hidden;
+}
+
+.narrative-prompt.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Standard prompt styling */
+.prompt-text {
+  font-size: 2.5rem;
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 3rem;
+  line-height: 1.4;
+  font-family: 'Playfair Display', serif;
+  font-weight: 300;
+  color: #f5f5f5;
+}
+
+.continue-button {
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.continue-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Welcome prompt enhanced styling */
+.welcome-prompt {
+  background-color: rgba(10, 10, 21, 0.95);
+  color: white;
+}
+
+.prompt-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(74, 144, 226, 0.1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  z-index: -1;
+  transition: transform 0.2s ease-out;
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.welcome-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #4A90E2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  letter-spacing: -1px;
+  transform: translateY(0);
+  animation: floatTitle 4s ease-in-out infinite;
+}
+
+.welcome-subtitle {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 3rem;
+  max-width: 600px;
+  line-height: 1.4;
+}
+
+.glowing-line {
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.glowing-line::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(90deg, 
+    rgba(74, 144, 226, 0) 0%, 
+    rgba(74, 144, 226, 0.5) 50%,
+    rgba(74, 144, 226, 0) 100%);
+  filter: blur(4px);
+}
+
+.enter-button {
+  padding: 1.2rem 3.5rem;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.enter-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.enter-button:hover {
+  background-color: rgba(74, 144, 226, 0.2);
+  border-color: rgba(74, 144, 226, 0.8);
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(74, 144, 226, 0.5);
+}
+
+.enter-button:hover::before {
+  left: 100%;
+}
+
+/* Floating brand icons in background */
+.brand-icons-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.floating-brand-icon {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.1;
+  animation: float linear infinite;
+  filter: blur(1px);
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+@keyframes floatTitle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 3rem;
+  }
+  
+  .welcome-subtitle {
+    font-size: 1.4rem;
+  }
+  
+  .enter-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* After welcome prompt styles for narrative prompts */
+.narrative-prompt:not(.welcome-prompt) {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 2rem;
+}
+
+.narrative-prompt:not(.welcome-prompt) .prompt-text {
+  animation: fadeTextIn 1s ease forwards;
+}
+
+@keyframes fadeTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

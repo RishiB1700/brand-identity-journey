@@ -1,0 +1,1065 @@
+/* MascotMausoleum.css - Enhanced for non-linear navigation */
+.mausoleum-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #08080f;
+  color: #f5f5f5;
+  overflow: hidden;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(175deg, #0a0a14 0%, #111122 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Atmospheric light beams */
+.light-beam {
+  position: fixed;
+  width: 150px;
+  height: 100vh;
+  background: linear-gradient(to right, 
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0) 100%);
+  transform: rotate(15deg);
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.light-beam-1 {
+  left: 15%;
+  animation: light-shift 35s infinite alternate ease-in-out;
+}
+
+.light-beam-2 {
+  left: 65%;
+  animation: light-shift 25s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes light-shift {
+  0% { transform: rotate(15deg) translateX(-20px); }
+  100% { transform: rotate(12deg) translateX(20px); }
+}
+
+/* Fog/mist effect */
+.mausoleum-mist {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.01' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+  background-size: cover;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Vignette effect */
+.mausoleum-vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Minimal header */
+.mausoleum-header {
+  padding: 3rem 0 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.mausoleum-title {
+  font-size: 3.5rem;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: #f5f5f5;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.mausoleum-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* Enhanced Timeline Navigation */
+.timeline-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.timeline-navigation {
+  width: 100%;
+  max-width: 1200px;
+  padding: 4rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.1) 0%, 
+    rgba(255,255,255,0.3) 50%, 
+    rgba(255,255,255,0.1) 100%);
+  z-index: 1;
+}
+
+.timeline-eras {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 4rem;
+}
+
+.era-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  width: 200px;
+}
+
+.era-marker:hover .era-dot {
+  transform: scale(1.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.era-marker:hover .era-label,
+.era-marker:hover .era-title {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.era-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.era-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  margin-bottom: 5px;
+}
+
+.era-title {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Era Progress Indicators on Timeline */
+.era-progress-indicator {
+  display: inline-block;
+  margin-left: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  vertical-align: middle;
+}
+
+/* Timeline Completion Area */
+.timeline-completion-area {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fade-in 1s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-completion-message {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.timeline-exit-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+  border-radius: 4px;
+}
+
+.timeline-exit-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating Progress Indicator */
+.floating-progress {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  padding: 0.8rem 1.2rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 90%;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.floating-progress:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateX(-50%) translateY(-3px);
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+.progress-count {
+  font-weight: 600;
+  color: white;
+}
+
+.progress-bar {
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4A5ED0, #4AD0B4);
+  transition: width 0.5s ease;
+}
+
+.floating-exit-button {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.floating-exit-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Sticky era indicator - enhanced for clickability */
+.era-indicator {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  z-index: 5;
+  background: linear-gradient(to bottom, rgba(8, 8, 15, 0.9), rgba(8, 8, 15, 0.7) 80%, rgba(8, 8, 15, 0));
+  margin-bottom: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.era-pill {
+  padding: 0.7rem 1.5rem;
+  background-color: rgba(30, 30, 40, 0.7);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.era-pill:hover {
+  background-color: rgba(50, 50, 60, 0.7);
+  transform: translateY(-2px);
+}
+
+.return-icon {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.era-pill:hover .return-icon {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.era-pill-pioneers {
+  border-left: 3px solid rgba(150, 150, 255, 0.5);
+}
+
+.era-pill-golden {
+  border-left: 3px solid rgba(255, 200, 100, 0.5);
+}
+
+.era-pill-millennial {
+  border-left: 3px solid rgba(255, 100, 255, 0.5);
+}
+
+.era-pill-modern {
+  border-left: 3px solid rgba(100, 255, 200, 0.5);
+}
+
+/* Era content section */
+.era-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 40px;
+}
+
+.era-section {
+  height: 100%;
+  padding: 1rem 0;
+  position: relative;
+}
+
+/* Era introduction styling */
+.era-introduction {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.era-intro-title {
+  font-size: 2.2rem;
+  margin: 0 0 1rem;
+  color: white;
+  position: relative;
+  display: inline-block;
+}
+
+.era-years {
+  font-size: 1.2rem;
+  opacity: 0.7;
+  font-weight: normal;
+  margin-left: 0.5rem;
+}
+
+.era-intro-description {
+  font-size: 1.3rem;
+  opacity: 0.8;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Mascot Grid - standard grid for 2, 3, or 4 items */
+.mascots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+/* Balanced grid for handling 5 items (3-2 layout) */
+.mascots-grid-balanced {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mascots-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.mascots-row.centered {
+  justify-content: center;
+}
+
+.mascots-row .memorial-card {
+  flex: 1;
+  max-width: 400px;
+  min-width: 280px;
+}
+
+/* Visual Card Styling */
+.memorial-card {
+  position: relative;
+  height: 400px;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  animation: card-appear 0.8s forwards;
+  animation-delay: calc(var(--card-index) * 0.2s);
+  display: flex;
+  flex-direction: column;
+  background-color: #0c0c18;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes card-appear {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.memorial-card:hover {
+  transform: translateY(-15px) rotate(1deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  z-index: 3;
+}
+
+.memorial-card:nth-child(2n):hover {
+  transform: translateY(-15px) rotate(-1deg);
+}
+
+/* Era-specific styling */
+.pioneers-card {
+  border-top: 4px solid rgba(74, 94, 208, 0.7);
+}
+
+.golden-card {
+  border-top: 4px solid rgba(208, 164, 74, 0.7);
+}
+
+.millennial-card {
+  border-top: 4px solid rgba(180, 74, 208, 0.7);
+}
+
+.modern-card {
+  border-top: 4px solid rgba(74, 208, 180, 0.7);
+}
+
+/* Card Elements */
+.card-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  background-color: #0a0a16;
+}
+
+.mascot-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 250px;
+  transition: all 0.4s ease;
+}
+
+.memorial-card:hover .mascot-image {
+  transform: scale(1.1);
+}
+
+.mascot-image-large {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.mascot-fallback {
+  font-size: 6rem;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+}
+
+.memorial-card:hover .mascot-fallback {
+  transform: scale(1.15);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.7));
+}
+
+.mascot-info {
+  position: relative;
+  z-index: 2;
+  padding: 1.2rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+.mascot-name {
+  font-size: 1.6rem;
+  margin: 0 0 0.2rem;
+  color: #f5f5f5;
+}
+
+.mascot-year {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* Visited state with overlay */
+.memorial-card.visited::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.memorial-card.visited:hover::after {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* Visited stamp effect on cards */
+.memorial-card.visited::before {
+  content: 'VISITED';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.3rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 6;
+  transition: opacity 0.3s ease;
+}
+
+.memorial-card.visited:hover::before {
+  opacity: 1;
+}
+
+/* Exit Button Area - clean styling */
+.exit-area {
+  text-align: center;
+  padding: 2rem 0;
+  position: relative;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.exit-area.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.exit-button {
+  background-color: rgba(30, 30, 45, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  padding: 0.8rem 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 2px;
+  border-radius: 3px;
+}
+
+.exit-button:hover {
+  background-color: rgba(60, 60, 90, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Modal for mascot storytelling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mascot-modal {
+  width: 90%;
+  max-width: 1000px;
+  height: 80vh;
+  background-color: rgba(15, 15, 25, 0.95);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  animation: modalIn 0.5s ease-out;
+  position: relative;
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mascot-modal.closing {
+  animation: modalOut 0.4s ease-in forwards;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes modalOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+/* Visual split layout */
+.modal-visual-side {
+  width: 40%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+.modal-mascot-display {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.mascot-silhouette {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float-subtle 5s infinite alternate ease-in-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes float-subtle {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-10px) scale(1.02); }
+}
+
+.brand-year-tag {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  margin: 0 0 0.2rem;
+}
+
+.brand-year {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Narrative side */
+.modal-narrative-side {
+  width: 60%;
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+  background-color: rgba(10, 10, 20, 0.7);
+}
+
+.narrative-container {
+  padding: 3rem 2rem;
+  height: 100%;
+}
+
+.narrative-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.4;
+  text-align: center;
+  padding: 0 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.5rem;
+}
+
+.story-section {
+  margin-bottom: 1.5rem;
+}
+
+.story-title {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.story-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-family: 'Inter', 'Arial', sans-serif;
+}
+
+.narrative-reflection {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-size: 1rem;
+  color: white;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .mascots-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  
+  .memorial-card {
+    height: 380px;
+  }
+  
+  /* Modal stacks on smaller screens */
+  .mascot-modal {
+    flex-direction: column;
+    height: 90vh;
+  }
+  
+  .modal-visual-side,
+  .modal-narrative-side {
+    width: 100%;
+    height: auto;
+  }
+  
+  .modal-visual-side {
+    height: 40%;
+  }
+  
+  .modal-narrative-side {
+    height: 60%;
+  }
+  
+  .mascot-silhouette {
+    width: 150px;
+    height: 150px;
+    font-size: 4rem !important;
+  }
+  
+  .narrative-container {
+    padding: 2rem 1.5rem;
+  }
+  
+  .narrative-tagline {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .floating-progress {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.8rem;
+  }
+  
+  .progress-bar {
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mausoleum-title {
+    font-size: 2.5rem;
+  }
+  
+  .mausoleum-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .era-introduction {
+    padding: 1.5rem 1rem;
+  }
+  
+  .era-intro-title {
+    font-size: 1.8rem;
+  }
+  
+  .era-intro-description {
+    font-size: 1.1rem;
+  }
+  
+  .mascots-grid {
+    gap: 1.5rem;
+    padding: 0 1rem 2rem;
+  }
+  
+  .mascots-grid-balanced {
+    gap: 1.5rem;
+    padding: 0 1rem 2rem;
+  }
+  
+  .mascots-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .memorial-card {
+    height: 320px;
+  }
+  
+  .mascot-fallback {
+    font-size: 5rem;
+  }
+  
+  .mascot-name {
+    font-size: 1.3rem;
+  }
+  
+  .mascot-silhouette {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem !important;
+  }
+  
+  .story-title {
+    font-size: 1rem;
+  }
+  
+  .story-text {
+    font-size: 0.9rem;
+  }
+  
+  .narrative-reflection {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mausoleum-title {
+    font-size: 2rem;
+  }
+  
+  .memorial-card {
+    height: 280px;
+  }
+  
+  .mascot-fallback {
+    font-size: 4rem;
+  }
+  
+  .mascot-name {
+    font-size: 1.1rem;
+  }
+  
+  .mascot-year {
+    font-size: 0.75rem;
+  }
+  
+  .mascot-modal {
+    width: 95%;
+    height: 85vh;
+  }
+  
+  .narrative-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .mascot-silhouette {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem !important;
+  }
+  
+  .brand-name {
+    font-size: 1.2rem;
+  }
+  
+  .brand-year {
+    font-size: 0.8rem;
+  }
+  
+  .narrative-tagline {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .story-section {
+    margin-bottom: 1rem;
+  }
+  
+  .story-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .story-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .narrative-reflection {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+  
+  .exit-button {
+    font-size: 0.9rem;
+    padding: 0.7rem 2rem;
+  }
+}
