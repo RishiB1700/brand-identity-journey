@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/brand-identity-journey/static/css/main.e784d673.css",
-    "main.js": "/brand-identity-journey/static/js/main.d23a1686.js",
+    "main.js": "/brand-identity-journey/static/js/main.811c2aa8.js",
     "static/media/Skittles.png": "/brand-identity-journey/static/media/Skittles.4f963bc9d97ad7ff6504.png",
     "static/media/noid.png": "/brand-identity-journey/static/media/noid.acebf514865009c08154.png",
     "static/media/Burger King.png": "/brand-identity-journey/static/media/Burger King.fb7ee7dd7be1cf71f865.png",
@@ -45,10 +45,10 @@
     "static/media/Tiktok.png": "/brand-identity-journey/static/media/Tiktok.fec5fba19e3f69650fba.png",
     "index.html": "/brand-identity-journey/index.html",
     "main.e784d673.css.map": "/brand-identity-journey/static/css/main.e784d673.css.map",
-    "main.d23a1686.js.map": "/brand-identity-journey/static/js/main.d23a1686.js.map"
+    "main.811c2aa8.js.map": "/brand-identity-journey/static/js/main.811c2aa8.js.map"
   },
   "entrypoints": [
     "static/css/main.e784d673.css",
-    "static/js/main.d23a1686.js"
+    "static/js/main.811c2aa8.js"
   ]
 }
